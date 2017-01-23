@@ -44,14 +44,29 @@ var Darken = function(Colorrgb)
 // splits into array "123" " 123" " 1"
 var col = Colorrgb.substring(4,Colorrgb.length - 1).split(",");
 
-
+// for each item in array (r,g,b)
+// adds "000" to start   "000123"  "000 123"  "000 1"
+// replaces the spaces  "000123"  "000123"   "0001"
+// cuts off the last 3 digits "123  "123  "001"
+// converts into integer values "123"  "123"  "1"
+// shrinks the value and rounds it to nearest int  "102" "102" "1"
 var r = Math.round(parseInt((("000" + col[0]).replace(/ /g,'')).slice(-3), 10)*0.9);
 var g = Math.round(parseInt((("000" + col[1]).replace(/ /g,'')).slice(-3), 10)*0.9);
 var b = Math.round(parseInt((("000" + col[2]).replace(/ /g,'')).slice(-3), 10)*0.9);
 
-console.log(r + " " + g + " " + b);
-  //take hexColor #0011FF
- var hex = "#" + ("000000" + r.toString(16) + g.toString(16) + b.toString(16)).slice(-6);
+
+
+
+  //calculates the hex color value
+  //converts the rgb int values into strings in base 16, "7b" , "6F", "F"
+  // adds that to "000000" giving    "0000007b6F'0'F"
+  var rHex = (("0" + r.toString(16)).toUpperCase()).slice(-2);
+  var gHex = (("0" + g.toString(16)).toUpperCase()).slice(-2);
+  var bHex = (("0" + b.toString(16)).toUpperCase()).slice(-2);
+console.log(rHex + " " + gHex + " " + bHex);
+
+
+ var hex = "#" + (rHex +gHex + bHex).toUpperCase();
 
 return hex;
 
@@ -60,7 +75,7 @@ return hex;
 var okClick = function()
 {
     gridSize = $("#sizeinput").val();
-    console.log(gridSize);
+
     $(".box").remove();
     createGrid(gridSize,gridSize);
 }
