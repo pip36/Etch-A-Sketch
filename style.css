@@ -1,4 +1,14 @@
+body{
+  text-align: center;
+  font-family: sans-serif;
+}
 
+
+
+h4{
+  float: left;
+  margin-left: 20%;
+}
 
 #container{
   background-color: white;
@@ -6,6 +16,7 @@
   width: 500px;
   height:500px;
   padding: 0;
+  margin-left: 30%;
 }
 .box{
   border: 0px solid black;
@@ -18,5 +29,5 @@
   display: inline-block;
   margin:0;
   padding:0;
-  
+
 }
