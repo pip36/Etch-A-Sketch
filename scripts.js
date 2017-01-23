@@ -91,6 +91,11 @@ createGrid(gridSize,gridSize);
       okClick();
     });
 
+    $("#clear").click(function(){
+        $(".box").remove();
+      createGrid(gridSize,gridSize);
+    });
+
 
 
 });
