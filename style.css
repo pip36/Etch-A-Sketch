@@ -1,14 +1,22 @@
 
 
 #container{
-  border 1px solid black;
+  background-color: white;
+  border: 1px solid red;
   width: 500px;
   height:500px;
+  padding: 0;
 }
 .box{
-  border: 1px solid black;
+  border: 0px solid black;
   display: inline-block;
+  margin:0;
+  padding:0;
 }
 .painted{
+  border: 0px solid black;
+  display: inline-block;
+  margin:0;
+  padding:0;
   background-color: black;
 }
