@@ -1,7 +1,6 @@
 // create 8 * 8 grid of divs
 
-var gridWidth;
-var gridHeight;
+var gridSize = 30;
 
 var createGrid = function(width, height)
 {
@@ -14,17 +13,29 @@ var createGrid = function(width, height)
       }
     }
 
+    $(".box").hover(function(){
+      $(this).addClass("box, painted");
+      console.log("hover");
+    });
+}
 
+var okClick = function()
+{
+    gridSize = $("#sizeinput").val();
+    console.log(gridSize);
+    $(".box").remove();
+    createGrid(gridSize,gridSize);
 }
 
 $(document).ready(function(){
 
-createGrid(30,30);
+//Creates grid of divs with default grid size//
+createGrid(gridSize,gridSize);
 
-    $(".box").hover(function(){
-
-      $(this).addClass("box, painted");
-
+    $("#ok").click(function(){
+      okClick();
     });
+
+  
 
 });
